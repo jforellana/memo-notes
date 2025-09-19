@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Memo Notes Transcriber</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Memo Notes Transcriber</h1>
+        <p>Upload an audio or video file to generate a transcript using OpenAI's Whisper model.</p>
+      </header>
+
+      <form id="upload-form" class="card">
+        <label class="file-input">
+          <span id="file-label">Choose an audio file</span>
+          <input
+            id="file-input"
+            name="file"
+            type="file"
+            accept="audio/*,video/mp4,video/mpeg,video/quicktime"
+            required
+          />
+        </label>
+        <button type="submit">Transcribe</button>
+      </form>
+
+      <section id="status" class="status" aria-live="polite">
+        Select a file to begin.
+      </section>
+
+      <section id="result" class="card" hidden>
+        <h2>Transcript</h2>
+        <pre id="transcript"></pre>
+      </section>
+    </main>
+
+    <script src="/static/app.js" type="module"></script>
+  </body>
+</html>
