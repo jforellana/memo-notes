@@ -1,9 +1,12 @@
 from transcriber import transcribe
 from summarizer import summarize
+from token_generator import TokenManager
 from dotenv import load_dotenv
 import os
 
-# load_dotenv()
+load_dotenv()
+
+tokenManager=TokenManager()
 
 api_key = os.getenv("OPENAI_API_KEY")
 
@@ -28,7 +31,9 @@ api_key = os.getenv("OPENAI_API_KEY")
 #         summary = summarize(transcript, api_key)
 #     action = input(PROMPT)
 
-for file in os.listdir("app/audios"):
+print(f"current directory {os.getcwd()}")
+
+for file in os.listdir("./app/audios"):
     transcript = transcribe(f"audios/{file}")
-    summarize(transcript, api_key, bulk = True)
+    summarize(transcript, api_key, tokenManager)
     print(f"{file} has been transcribed and saved")

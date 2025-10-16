@@ -3,3 +3,4 @@ __pycache__/
 audios/
 .vscode/
 *.deb
+embeddings/
